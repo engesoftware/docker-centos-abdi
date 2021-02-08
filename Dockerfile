@@ -10,6 +10,9 @@ RUN yum -C install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-
 RUN yum-config-manager --enable remi,remi-php72 && yum clean all
 
 RUN curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/mssql-release.repo
+RUN curl https://dl.yarnpkg.com/rpm/yarn.repo > /etc/yum.repos.d/yarn.repo
+RUN rpm --import https://dl.yarnpkg.com/rpm/pubkey.gpg
+
 
 RUN yum -y update
 
@@ -20,6 +23,8 @@ RUN yum install -y deltarpm \
     mssql-tools \
     unixODBC-devel \
     git \
+    nodejs \
+    yarn \
     unzip \
     httpd \
     mod_ssl \
