@@ -3,7 +3,7 @@ FROM centos:7
 MAINTAINER Juliano Buzanello <juliano.buzanello@engesoftware.com.br>
 
 RUN yum -C install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
-        http://rpms.famillecollet.com/enterprise/7/remi/x86_64/remi-release-7.7-2.el7.remi.noarch.rpm \
+        http://rpms.remirepo.net/enterprise/7/remi/x86_64/remi-release-7.8-1.el7.remi.noarch.rpm \
     && rm -rf /var/cache/yum/* \
     && rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7 /etc/pki/rpm-gpg/RPM-GPG-KEY-remi /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
@@ -40,6 +40,7 @@ RUN yum install -y deltarpm \
     php-mbstring \
     php-sqlsrv \
     php-pgsql \
+    php-mysqli \
     php-gd \
     php-pecl-zip \
     which \
